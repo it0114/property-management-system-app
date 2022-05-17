@@ -1,16 +1,74 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "uni-app"
-			}
-		}
-	],
-	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
-	}
+  "easycom": {
+    "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+  },
+  "pages": [
+    {
+      "path": "pages/login/index",
+      "style": {
+        "navigationBarTitleText": "登陆",
+        "app-plus": {
+          "titleNView": false
+        },
+        "navigationBarBackgroundColor": "#FE5786",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/home/index",
+      "style": {
+        "navigationBarTitleText": "首页",
+        "navigationBarBackgroundColor": "#2C66EC",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/order/index",
+      "style": {
+        "navigationBarTitleText": "常见问题",
+        "navigationBarBackgroundColor": "#2C66EC",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/account/index",
+      "style": {
+        "navigationBarTitleText": "我的",
+        "navigationBarBackgroundColor": "#2C66EC",
+        "navigationBarTextStyle": "white"
+      }
+    }
+  ],
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#5385EA",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "iconPath": "static/tabbar/home0.png",
+        "selectedIconPath": "static/tabbar/home1.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/order/index",
+        "iconPath": "static/tabbar/order0.png",
+        "selectedIconPath": "static/tabbar/order1.png",
+        "text": "常见问题"
+      },
+      {
+        "pagePath": "pages/account/index",
+        "iconPath": "static/tabbar/account0.png",
+        "selectedIconPath": "static/tabbar/account1.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "物业管理系统App",
+    "navigationBarBackgroundColor": "#2C66EC",
+    "backgroundColor": "#F8F8F8"
+  }
 }

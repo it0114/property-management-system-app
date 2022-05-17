@@ -1,19 +1,17 @@
 # property-management-system-app
 
-## Project setup
-```
+### 启动
 npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+h5 : npm run sever
 
-### Compiles and minifies for production
-```
-npm run build
-```
+ios / android : 把文件拖进 HBuilderX 中,点击 scr 文件夹 , 选择运行终端
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 遇到的坑总结
+
+#### 路由跳转问题
+1. 要配置 pages
+2. 使用 switchTab 进行跳转
+3. switchTab 中的 url 需要 /pages ,而不是pages
+
+
