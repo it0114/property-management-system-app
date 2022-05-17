@@ -37,6 +37,38 @@
         "navigationBarBackgroundColor": "#2C66EC",
         "navigationBarTextStyle": "white"
       }
+    },
+    {
+      "path": "pages/account/my-message",
+      "style": {
+        "navigationBarTitleText": "我的消息",
+        "navigationBarBackgroundColor": "#2C66EC",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/account/my-card",
+      "style": {
+        "navigationBarTitleText": "我的卡包",
+        "navigationBarBackgroundColor": "#2C66EC",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/account/help",
+      "style": {
+        "navigationBarTitleText": "帮助",
+        "navigationBarBackgroundColor": "#2C66EC",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/account/about",
+      "style": {
+        "navigationBarTitleText": "关于我们",
+        "navigationBarBackgroundColor": "#2C66EC",
+        "navigationBarTextStyle": "white"
+      }
     }
   ],
   "tabBar": {
