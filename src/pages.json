@@ -60,6 +60,42 @@
       "style": {
         "navigationBarTitleText": "修改用户信息"
       }
+    },
+    {
+      "path": "pages/home/health-code",
+      "style": {
+        "navigationBarTitleText": "健康码"
+      }
+    },
+    {
+      "path": "pages/home/news",
+      "style": {
+        "navigationBarTitleText": "小区头条"
+      }
+    },
+    {
+      "path": "pages/home/my-home",
+      "style": {
+        "navigationBarTitleText": "我的房屋"
+      }
+    },
+    {
+      "path": "pages/home/repair-report",
+      "style": {
+        "navigationBarTitleText": "报修"
+      }
+    },
+    {
+      "path": "pages/home/complaint",
+      "style": {
+        "navigationBarTitleText": "投诉"
+      }
+    },
+    {
+      "path": "pages/home/sublease",
+      "style": {
+        "navigationBarTitleText": "转租"
+      }
     }
   ],
   "tabBar": {

@@ -8,7 +8,7 @@
       <u-grid-item
           v-for="(listItem,listIndex) in list"
           :key="listIndex"
-          @tap="handleGridItemClick"
+          @tap="handleGridItemClick(listItem)"
       >
         <u-icon
             :customStyle="{paddingTop:20+'rpx'}"
@@ -30,34 +30,46 @@ export default {
       list: [
         {
           icon: 'grid',
-          title: '健康码'
+          title: '健康码',
+          path: 'pages/home/health-code'
         },
         {
           icon: 'volume',
-          title: '小区头条'
+          title: '小区头条',
+          path: 'pages/home/news'
         },
         {
           icon: 'home',
-          title: '我的房屋'
+          title: '我的房屋',
+          path: 'pages/home/my-home'
         },
         {
           icon: 'setting',
-          title: '报修'
+          title: '报修',
+          path: 'pages/home/repair-report'
         },
         {
           icon: 'server-man',
-          title: '投诉'
+          title: '投诉',
+          path: 'pages/home/complaint'
         },
         {
           icon: 'star',
-          title: '转租'
+          title: '转租',
+          path: 'pages/home/sublease'
         },
       ],
     }
   },
   methods: {
-    handleGridItemClick(name) {
-      this.$refs.uToast.success(`点击了第${name}个`)
+    // 跳转
+    handleGridItemClick(item) {
+      // this.$refs.uToast.success(item.path)
+      if (item.path) {
+        uni.$u.route({
+          url: item.path,
+        })
+      }
     }
   }
 }
