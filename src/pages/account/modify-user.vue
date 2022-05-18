@@ -112,15 +112,13 @@ export default {
         this.model.userInfo = dataRes
 
         if (dataRes) {
-          uni.$u.toast('用户信息修改成功')
           // 跳转 我的界面
-          setTimeout(() => {
-            uni.switchTab({
-              url: "/pages/account/index",
-              success: (res) => {
-              }
-            });
-          }, 500)
+          uni.switchTab({
+            url: "/pages/account/index",
+            success: (res) => {
+              uni.$u.toast('用户信息修改成功')
+            }
+          });
         } else {
           uni.$u.toast('修改失败')
         }

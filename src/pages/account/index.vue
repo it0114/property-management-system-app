@@ -47,15 +47,13 @@ export default {
         uni.reLaunch({
           url: '/pages/login/index',
           success: (res) => {
-
             // 清空 propertyUserId (用户id)
             uni.removeStorage({
               key: 'propertyUserId',
-              success: function (res) {
+              success: (res) => {
                 uni.$u.toast('退出成功')
               }
             })
-
           }
         });
       }, 100)
@@ -63,23 +61,23 @@ export default {
     // 获取用户信息
     async getUserinfo() {
       // 1. 获取用户 id (本地存储)
-      let propertyUserId = null
       uni.getStorage({
         key: "propertyUserId",
-        success(res) {
-          propertyUserId = res.data
+        success: async user => {
+          let id = user.data
+          // 2. 根据 id 获取对应数据
+          let res = await uni.$u.http.get('/api/user', {params: {id}})
+          if (res.data) {
+            let data = res.data[0]
+            this.userInfo = {
+              ...data,
+            }
+          } else {
+            uni.$u.toast('数据获取失败')
+          }
         }
       })
-      // 2. 根据 id 获取对应数据
-      let res = await uni.$u.http.get('/api/user', {params: {id: propertyUserId}})
-      if (res.data) {
-        let data = res.data[0]
-        this.userInfo = {
-          ...data,
-        }
-      } else {
-        uni.$u.toast('数据获取失败')
-      }
+
     },
   }
 }

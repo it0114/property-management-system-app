@@ -8,6 +8,7 @@
       <u-grid-item
           v-for="(listItem,listIndex) in list"
           :key="listIndex"
+          @tap="handleGridItemClick"
       >
         <u-icon
             :customStyle="{paddingTop:20+'rpx'}"
@@ -55,7 +56,7 @@ export default {
     }
   },
   methods: {
-    click(name) {
+    handleGridItemClick(name) {
       this.$refs.uToast.success(`点击了第${name}个`)
     }
   }

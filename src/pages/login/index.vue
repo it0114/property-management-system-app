@@ -94,20 +94,20 @@ export default {
               //   url: 'pages/home/index',
               // })
 
-
               // 保存 id (本地存储)
               uni.setStorage({
                 key: "propertyUserId",
                 data: dataRes,
-              })
-
-              uni.switchTab({
-                url: '/pages/home/index',
-                success: (res) => {
-                  uni.$u.toast('登陆成功')
+                success() {
+                  uni.switchTab({
+                    url: '/pages/home/index',
+                    success: (res) => {
+                      uni.$u.toast('登陆成功')
+                    }
+                  });
                 }
-              });
-
+              })
+              
             }, 500)
           } else {
             // 账号密码错误的情况
