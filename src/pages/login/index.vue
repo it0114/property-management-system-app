@@ -94,6 +94,13 @@ export default {
               //   url: 'pages/home/index',
               // })
 
+
+              // 保存 id (本地存储)
+              uni.setStorage({
+                key: "propertyUserId",
+                data: dataRes,
+              })
+
               uni.switchTab({
                 url: '/pages/home/index',
                 success: (res) => {

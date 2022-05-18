@@ -1,6 +1,6 @@
 <template>
   <view class="account">
-    <userInfoBox/>
+    <userInfoBox :userInfo="userInfo"/>
     <cellList/>
     <view class="out-login">
       <u-button color="#3B65E4" text="退出登录" type="primary" @tap="outLoginShow = true"></u-button>
@@ -31,10 +31,15 @@ export default {
   },
   data() {
     return {
-      outLoginShow: false
+      outLoginShow: false,// 退出的弹窗
+      userInfo: {}, // 用户信息
     }
   },
+  onShow() {
+    this.getUserinfo()
+  },
   methods: {
+    // 退出登录
     async handlerOutLoginOk() {
       await uni.$u.http.get('/api/login/logout')
       this.outLoginShow = true
@@ -42,11 +47,40 @@ export default {
         uni.reLaunch({
           url: '/pages/login/index',
           success: (res) => {
-            uni.$u.toast('退出成功')
+
+            // 清空 propertyUserId (用户id)
+            uni.removeStorage({
+              key: 'propertyUserId',
+              success: function (res) {
+                uni.$u.toast('退出成功')
+              }
+            })
+
           }
         });
       }, 100)
-    }
+    },
+    // 获取用户信息
+    async getUserinfo() {
+      // 1. 获取用户 id (本地存储)
+      let propertyUserId = null
+      uni.getStorage({
+        key: "propertyUserId",
+        success(res) {
+          propertyUserId = res.data
+        }
+      })
+      // 2. 根据 id 获取对应数据
+      let res = await uni.$u.http.get('/api/user', {params: {id: propertyUserId}})
+      if (res.data) {
+        let data = res.data[0]
+        this.userInfo = {
+          ...data,
+        }
+      } else {
+        uni.$u.toast('数据获取失败')
+      }
+    },
   }
 }
 </script>

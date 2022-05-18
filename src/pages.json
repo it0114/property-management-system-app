@@ -8,66 +8,57 @@
       "style": {
         "navigationBarTitleText": "登陆",
         "app-plus": {
-          "titleNView": false
-        },
-        "navigationBarBackgroundColor": "#FE5786",
-        "navigationBarTextStyle": "white"
+          "titleNView": false,
+          "softinputMode": "adjustResize"
+        }
       }
     },
     {
       "path": "pages/home/index",
       "style": {
-        "navigationBarTitleText": "首页",
-        "navigationBarBackgroundColor": "#2C66EC",
-        "navigationBarTextStyle": "white"
+        "navigationBarTitleText": "首页"
       }
     },
     {
       "path": "pages/order/index",
       "style": {
-        "navigationBarTitleText": "常见问题",
-        "navigationBarBackgroundColor": "#2C66EC",
-        "navigationBarTextStyle": "white"
+        "navigationBarTitleText": "常见问题"
       }
     },
     {
       "path": "pages/account/index",
       "style": {
-        "navigationBarTitleText": "我的",
-        "navigationBarBackgroundColor": "#2C66EC",
-        "navigationBarTextStyle": "white"
+        "navigationBarTitleText": "我的"
       }
     },
     {
       "path": "pages/account/my-message",
       "style": {
-        "navigationBarTitleText": "我的消息",
-        "navigationBarBackgroundColor": "#2C66EC",
-        "navigationBarTextStyle": "white"
+        "navigationBarTitleText": "我的消息"
       }
     },
     {
       "path": "pages/account/my-card",
       "style": {
-        "navigationBarTitleText": "我的卡包",
-        "navigationBarBackgroundColor": "#2C66EC",
-        "navigationBarTextStyle": "white"
+        "navigationBarTitleText": "我的卡包"
       }
     },
     {
       "path": "pages/account/help",
       "style": {
-        "navigationBarTitleText": "帮助",
-        "navigationBarBackgroundColor": "#2C66EC",
-        "navigationBarTextStyle": "white"
+        "navigationBarTitleText": "帮助"
       }
     },
     {
       "path": "pages/account/about",
       "style": {
-        "navigationBarTitleText": "关于我们",
-        "navigationBarBackgroundColor": "#2C66EC",
-        "navigationBarTextStyle": "white"
+        "navigationBarTitleText": "关于我们"
+      }
+    },
+    {
+      "path": "pages/account/modify-user",
+      "style": {
+        "navigationBarTitleText": "修改用户信息"
       }
     }
   ],
