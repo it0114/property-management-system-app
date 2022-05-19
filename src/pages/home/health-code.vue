@@ -10,6 +10,7 @@
             :modal="modal_qr"
             :themeColor="qrcodeData.color"
             :url="qrcodeData.url"
+            class="qrcode"
             qrcode_id="qrcode"
             @hideQrcode="hideQrcode"/>
       </view>
@@ -130,6 +131,15 @@ export default {
       font-size: 36rpx;
       text-align: center;
       font-weight: 500;
+    }
+
+    .qrcode-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .qrcode {
+      }
     }
 
     .qrcode-text {
