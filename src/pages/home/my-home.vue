@@ -110,23 +110,23 @@ export default {
       uni.getStorage({
         key: "propertyUserId",
         success: async user => {
-          let id = user.data
-          // let id = 1
-          // 2. 根据 id 获取对应数据
-          let resData = await uni.$u.http.get('/api/house', {params: {id}})
+          let userId = user.data
+
+          // 用户id 请求用户信息, 然后用用户信息返回的 houseId 请求 房屋信息
+
+          let userInfo = await uni.$u.http.get('/api/user', {params: {id: userId}})
+          // console.log(userInfo.data[0].houseId);
+          if (userInfo.data[0].houseId === null) {
+            this.setUserInfoEmpty()
+            return
+          }
+          // 2. 根据 houseId 获取对应数据
+          let resData = await uni.$u.http.get('/api/house',
+              {params: {id: userInfo.data[0].houseId}})
           if (resData.data) {
             // 如果是没有数据的情况, 则不处理
             if (resData.data[0] === undefined) {
-              this.model.userInfo = {
-                building: '暂无数据', // 楼宇
-                buildingUnit: '暂无数据',// 单元
-                name: '暂无数据',
-                displayTitle: '暂无数据',
-                area: '暂无数据',
-                checkinUserName: '暂无数据',  // 入住人
-                purpose: '暂无数据',
-                tel: '暂无数据'
-              }
+              this.setUserInfoEmpty()
               return
             }
             // 如果有数据 ,则赋值
@@ -143,6 +143,18 @@ export default {
         }
       })
     },
+    setUserInfoEmpty() {
+      this.model.userInfo = {
+        building: '暂无数据', // 楼宇
+        buildingUnit: '暂无数据',// 单元
+        name: '暂无数据',
+        displayTitle: '暂无数据',
+        area: '暂无数据',
+        checkinUserName: '暂无数据',  // 入住人
+        purpose: '暂无数据',
+        tel: '暂无数据'
+      }
+    }
   }
 }
 </script>
