@@ -13,7 +13,6 @@
           prop="userInfo.name">
         <u--input
             v-model="model.userInfo.name"
-            :disabled="true"
             border="none"/>
       </u-form-item>
       <u-form-item
@@ -109,7 +108,7 @@ export default {
           trigger: ['blur']
         },
         'userInfo.area': {
-          type: 'string',
+          type: 'number',
           required: true,
           message: '请填写面积',
           trigger: ['blur']

@@ -5,14 +5,10 @@
         {{ qrcodeData.time }}
       </view>
       <view class="qrcode-box">
-        <ayQrcode
-            ref="qrcode"
-            :modal="modal_qr"
-            :themeColor="qrcodeData.color"
-            :url="qrcodeData.url"
-            class="qrcode"
-            qrcode_id="qrcode"
-            @hideQrcode="hideQrcode"/>
+        <canvas
+            id="qrcode"
+            :style="{ width: `${qrcodeData.size}px`, height: `${qrcodeData.size}px` }"
+            canvas-id="qrcode"/>
       </view>
       <view :style="{
         color:qrcodeData.color,
@@ -25,12 +21,12 @@
 </template>
 
 <script>
-import ayQrcode from "../component/ay-qrcode/ay-qrcode.vue"
+import uQRCode from "u-qrcode"
 
 export default {
   name: "health-code",
   components: {
-    ayQrcode
+    uQRCode
   },
   data() {
     return {
@@ -38,36 +34,36 @@ export default {
       modal_qr: false,
       qrcodeData: {
         color: 'green',
-        bgColor: 'rgba(0, 255, 0, 0.1)',
-        url: "https://www.baidu.com",
+        bgColor: 'rgba(0,255,0,0.1)',
+        content: "https://www.baidu.com",
         text: '绿码',
-        time: this.getNowTime()
+        time: this.getNowTime(),
+        size: 256
       },
-      timer: null
+      timer: null,
     }
   },
+  onReady() {
+    const ctx = uni.createCanvasContext('qrcode');
+    const uqrcode = new uQRCode(
+        {
+          text: this.qrcodeData.content,
+          size: this.qrcodeData.size,
+          foreground: {
+            color: this.qrcodeData.color
+          }
+        },
+        ctx
+    );
+    uqrcode.make();
+    uqrcode.draw();
+  },
   mounted() {
-    this.qrcode()
     this.timer = setInterval(() => {
       this.qrcodeData.time = this.getNowTime()
     }, 1000)
   },
   methods: {
-    qrcode() {
-      this.modal_qr = true;
-      // uni.showLoading()
-      setTimeout(() => {
-        // uni.hideLoading()
-        this.$refs.qrcode.crtQrCode()
-      }, 50)
-    },
-    //传入组件的方法
-    hideQrcode() {
-      this.modal_qr = false;
-    },
-
-    // 获取时间
-
     //获取当前时间
     getNowTime() {
       let date = new Date();
@@ -137,16 +133,18 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-
-      .qrcode {
-      }
+      border: 5px solid #FBEF6B;
+      margin: 0 auto;
+      position: relative;
+      padding: 25rpx;
+      box-sizing: border-box;
     }
 
     .qrcode-text {
       width: 40%;
       display: block;
       text-align: center;
-      margin: 0 auto;
+      margin: 50rpx auto 0 auto;
       padding: 10rpx 30rpx;
       border-radius: 4px;
       font-size: 30rpx;
