@@ -40,6 +40,22 @@ export default {
         time: this.getNowTime(),
         size: 256
       },
+	  // qrcodeData: {
+	  //   color: 'red',
+	  //   bgColor: 'rgba(255,0,0,0.1)',
+	  //   content: "https://www.baidu.com",
+	  //   text: '红码',
+	  //   time: this.getNowTime(),
+	  //   size: 256
+	  // },
+	  // qrcodeData: {
+	  //   color: 'yellow',
+	  //   bgColor: 'rgba(255,255,0,0.1)',
+	  //   content: "https://www.baidu.com",
+	  //   text: '黄码',
+	  //   time: this.getNowTime(),
+	  //   size: 256
+	  // },
       timer: null,
     }
   },
